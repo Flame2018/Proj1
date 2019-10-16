@@ -1,0 +1,72 @@
+﻿@page
+@model FGear.Pages.myEmploys.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employees</h1>
+
+<p>
+    <a asp-page="Create">New Entries</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].EID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].Dsubmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].Aprroved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].UserRolesId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employs[0].Departments)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dsubmitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aprroved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRolesId.URID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departments.DeptID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

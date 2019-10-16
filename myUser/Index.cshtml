@@ -1,0 +1,48 @@
+﻿@page
+@model FGear.Pages.myUser.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Users</h1>
+
+<p>
+    <a asp-page="Create">New Entries</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].UID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].Uname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Users[0].UsersRolesID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Users) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsersRolesID.URID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

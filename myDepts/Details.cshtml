@@ -1,0 +1,37 @@
+﻿@page
+@model FGear.Pages.myDepts.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Depts</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Depts.Dname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Depts.Dname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Depts.Downer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Depts.Downer)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Depts.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Depts.Location)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Depts.DeptID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

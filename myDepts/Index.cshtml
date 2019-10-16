@@ -1,0 +1,61 @@
+﻿@page
+@model FGear.Pages.myDepts.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+    <h1 class="text-center">Departments</h1>
+    <br />
+    <br />
+        <h4 class="text-center"><a href="/Index">Home       </a></h4>
+        <h4 class="text-center">
+            <a asp-page="Create">New Entry</a>
+        </h4>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Depts[0].DeptID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depts[0].Dname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depts[0].Downer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Depts[0].Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Depts) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Downer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DeptID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DeptID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DeptID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
